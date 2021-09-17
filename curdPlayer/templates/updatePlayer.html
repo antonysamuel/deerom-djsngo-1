@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Home Page{% endblock title %}
+{% block main %}
+<section class="container">
+    <div class="row mt-5 text-white text-center justify-content-around">
+        <div class="col-sm-8 ">
+            <h3>Update Player</h3>
+        </div>
+    </div>
+    <div class="row justify-content-around">
+        <div class="col-sm-4">
+            <a href="{% url 'home' %}" class="btn float-end btn-primary">Home</a>
+            <br>
+            <form class="mt-5 p-3 rounded bg-white" action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Update Player" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+
+</section>
+{% endblock main %}
