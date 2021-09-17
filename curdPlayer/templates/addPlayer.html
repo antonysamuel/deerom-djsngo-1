@@ -12,10 +12,14 @@
         <div class="col-sm-4">
             <a href="{% url 'home' %}" class="btn float-end btn-primary">Home</a>
             <br>
-            <form class="mt-5 p-3 rounded bg-white" action="" method="POST">
+            <form class="mt-5 p-3 rounded bg-white" action="{% url 'addPlayer' %}" method="POST">
                 {% csrf_token %}
                 {{form.as_p}}
-                <input type="submit" value="Add Player" class="btn btn-primary">
+                <label for="" class="label">Game:</label><br>
+                <input class="form-control" name="game" type="text"><br>
+                <label for="" class="label">Score:</label><br>
+                <input class="form-control" name="score"  type="text"> <br>
+                <input  type="submit" value="Add Player" class="btn btn-primary">
             </form>
         </div>
     </div>

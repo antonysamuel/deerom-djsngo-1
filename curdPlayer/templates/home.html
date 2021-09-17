@@ -24,8 +24,8 @@
                       <th scope="col">Player Name</th>
                       <th scope="col">Player Email</th>
                       <th scope="col">Country</th>
-                      <th scope="col">Game</th>
-                      <th scope="col">Score</th>
+                      <th scope="col">Games</th>
+                      <th scope="col">Total Score</th>
                       <th scope="col">Action</th>
                     </tr>
                   </thead>
@@ -36,20 +36,20 @@
                     {% for player in playerData %}
                         
                     <tr>
-                      <th scope="row">{{player.id}}</th>
-                      <td>{{player.player_name}}</td>
-                      <td>{{player.player_email}}</td>
-                      <td>{{player.country}}</td>
-                      <td>{{player.game}}</td>
+                      <th scope="row">{{player.player.id}}</th>
+                      <td>{{player.player.player_name}}</td>
+                      <td>{{player.player.player_email}}</td>
+                      <td>{{player.player.country}}</td>
+                      <td>{{player.game}} games</td>
                       <td>{{player.score}}</td>
                       <td>
                           <div style="display: flex; gap: 12px;" class="action-btns">
                             <form action="{% url 'deletePlayer' %}" method="POST">
                                 {% csrf_token %}
-                                <input type="hidden" name="id" value={{player.id}}>
+                                <input type="hidden" name="id" value={{player.player.id}}>
                                 <input type="submit" value="Delete" class="btn btn-sm btn-danger">
                               </form>
-                              <a href="{% url 'updatePlayer' player.id %}" class="btn btn-sm btn-info">Update</a>
+                              <a href="{% url 'updatePlayer' player.player.id %}" class="btn btn-sm btn-info">Update</a>
                           </div>
                       </td>
                     </tr>
